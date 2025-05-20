@@ -19,5 +19,6 @@ function outputFIS = fitFuzzySystem(table_x, table_y, fis_options)
     opt.MethodOptions.EpochNumber = 100;
     
     % Tune the membership function parameters with "anfis".
-    [outputFIS,~] = tunefis(fisin,[in;out],x,y,opt);        
+    [outputFIS,~] = tunefis(fisin,[in;out],x,y,opt);    
+    display(outputFIS);
 end
