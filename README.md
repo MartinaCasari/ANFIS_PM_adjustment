@@ -26,7 +26,7 @@ This capability allows for:
 Evaluates the trained ANFIS model using the test set.
 Computes key performance metrics:
 
-- R² (Coefficient of Determination)
+- Pearson correlation coefficient
 - MAE (Mean Absolute Error)
 - MSE (Mean Squared Error)
 - RMSE (Root Mean Squared Error)
