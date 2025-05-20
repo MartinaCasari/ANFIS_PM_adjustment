@@ -1,16 +1,37 @@
 # ANFIS low-cost PM adjustment
 
 ## Description:
-This MATLAB code implements the Adaptive Neuro-Fuzzy Inference System (ANFIS) to adjust low-cost PM (Particulate Matter) data. The code consists of several MATLAB scripts and functions that perform data preprocessing, ANFIS modeling, training, and evaluation.
+This MATLAB code implements the Adaptive Neuro-Fuzzy Inference System (ANFIS) to adjust low-cost PM (Particulate Matter) data. The framework includes preprocessing, training, evaluation, and now supports rule pruning techniques to improve model efficiency and interpretability.
 
 ## Files:
 ### call_fuzzy.mlx:
 
-This file serves as the main entry point for applying the ANFIS model.
-It takes two input files, namely the training and test sets, in CSV format.
-It analyzes specified combinations of features provided in the input files.
-The number of membership functions (_input_features_num_mf_) for each feature should be ordered as the features list.
-The optimization algorithm and membership type parameters are specified within this file.
+This is the main script to run the ANFIS-based model.
+
+- Takes as input two CSV files for training and testing datasets.
+- Allows specification of feature combinations and corresponding numbers of membership functions (input_features_num_mf).
+- Contains parameters for membership function type and optimization algorithm.
+
+Update:
+Now includes the option to iteratively reduce fuzzy rules using two evaluation methods:
+- Binary Activation Method (BAM): Counts the number of times a rule is activated (non-zero).
+- Weighted Activation Method (WAM): Accumulates the activation strength across the dataset.
+- Rules with low usage or low weight are progressively pruned, and model performance is re-evaluated at each iteration.
+
+This capability allows for:
+- Model simplification and reduced memory usage
+- Performance stability during pruning, especially when using WAM
+- Enhanced interpretability of the final rule base
+
+Evaluates the trained ANFIS model using the test set.
+Computes key performance metrics:
+
+- R² (Coefficient of Determination)
+- MAE (Mean Absolute Error)
+- MSE (Mean Squared Error)
+- RMSE (Root Mean Squared Error)
+
+Outputs both per-sensor metrics (by SensorID) and global aggregated performance.
 
 ### fitFuzzySystem.m:
 
