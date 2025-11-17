@@ -1,4 +1,4 @@
-# Fuzzy System for PM2.5 Adjustment with Rule Reduction
+# FuzzyAir: Fuzzy System for PM2.5 Adjustment with Rule Reduction
 
 This repository implements an **Adaptive Neuro-Fuzzy Inference System (ANFIS)** for adjusting low-cost sensor PM2.5 measurements, with explainable AI techniques for rule reduction and optimization.
 
